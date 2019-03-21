@@ -1,0 +1,146 @@
+<html>
+    <style>
+p {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: rgb(20, 49, 1);
+    
+}
+.b2{
+    position: relative;
+    background-image: url("cloud.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+left:10mm;
+height: 15mm;
+box-shadow:10px 10px rgb(58, 57, 57);
+    width:17%;
+    border-radius: 12px;
+    border-color: rgb(18, 192, 223);
+    -webkit-transition: width 2s; /* Safari */
+  transition: width 1s;
+}
+.b2:hover{
+    width:20%;
+}
+.b1{
+    color: rgb(68, 25, 8);
+    background-color:dodgerblue;
+    width: 30mm ;
+}
+.b1:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.b3{
+    position: relative;
+    background-image: url("math.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+left:10mm;
+height: 15mm;
+box-shadow:10px 10px rgb(58, 57, 57);
+    width:17%;
+    border-radius: 12px;
+    border-color: rgb(9, 19, 20);
+    -webkit-transition: width 2s; /* Safari */
+  transition: width 1s;
+}
+.b3:hover{
+    width:20%;
+
+}
+.big{
+    position: relative;
+    left:10mm;
+    box-shadow:10px 10px dimgray;
+    background-image: url("robo.jpg");
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center; 
+    width:22%;
+    -webkit-transition: width 2s; /* Safari */
+  transition: width 2s;
+}
+.big:hover{
+    width:27%;
+}
+</style>
+<body background='iron_man.png'>
+<h1 id="12" style="color:darkblue;font-family:cursive">Welcome to Robust Technologies Inc</h1>
+<br>
+<hp style="color:rgba(16, 4, 85, 0.705);font-weight:bolder" >1.Do you want to contribute on dataset preparation?</p>
+<br>
+<div class="container">
+<div class="big">
+    <br>
+<select id="Choose" style="color:indigo;position:relative;width:25%;left:22mm">
+    <option style="color:indigo;background-color:rgb(14, 128, 180)" value="yes">Yes</option>
+    <option value="no" style="color:indigo;background-color:rgb(14, 128, 180)" >No</option>
+</select>
+<br></br>
+<button class="b1" style="position:relative;width:25%;left:22mm" onclick="yes_no()">Submit</button>
+<br></br>
+</div>
+<br></br>
+<h2>2.Image Capturing website</h2>
+    <br>
+<button class="b2" onclick="fn()"></button>
+    <br></br>
+</div>
+<div class="q1">
+    <h1 style="color:black">3.The Azimuth Calculation</h1>
+    <button class="b3" onclick="azimuth()"></button>
+</div>
+<script type="text/javascript">
+window.setTimeout("timeout()",3*60*1000);
+    function yes_no()
+        {
+        var x=document.getElementById("Choose");
+        var response=x.options[x.selectedIndex].value
+        alert("redirecting to gdrive")
+            if(response=="yes")
+            {
+                 window.location.href="https://drive.google.com/drive/folders/1-nkq2rFRv4eOcBMhcY5unb0lqgy5g1nl"
+            }
+            }
+        function timeout()
+        {
+            
+            window.location.href="login.html"
+            
+        }
+        function fn()
+        {
+            alert("Redirecting to Image capture website")
+            window.location.href="http://robosandy.herokuapp.com/index.html"
+        }
+        function azimuth()
+        {
+            alert("Redirecting to Azimuth Calculations");
+            window.location.href="solar tracker.html"
+        }
+
+        
+    
+</script>
+<br>
+</body>
+
+<br></br>
+
+<br></br>
+
+<br></br>
+
+<br></br>
+
+<br></br>
+
+<br></br>
+<body style="color:green">
+    <a href="https://github.com/Venseven">Creater</a>
+    <a href="about.html">About Us</a>
+</body>
+</html>

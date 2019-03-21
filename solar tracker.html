@@ -1,0 +1,158 @@
+<html>
+<style>
+#lat{
+position:fixed;
+height:7mm;
+width: 9%;
+left:44%;
+border-radius: 12px;
+border-bottom-color: cadetblue
+
+}
+#lon{
+position:fixed;
+height:7mm;
+width: 9%;
+left:44%;
+border-radius: 12px;
+border-bottom-color: cadetblue;
+}
+#hourgap{
+position:fixed;
+height:7mm;
+width: 9%;
+left:44%;
+border-radius: 12px;
+border-bottom-color: cadetblue;
+}
+#minutes{
+position:fixed;
+height:7mm;
+width: 9%;
+left:44%;
+border-radius: 12px;
+border-bottom-color: cadetblue;
+-moz-border-right-colors: skyblue;
+}
+p.relative{
+    position:relative;left:23%;
+    top:7%;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: cornsilk;
+    }
+input:hover{
+    width:11%;
+    box-shadow: 0 12px 16px 0 rgba(248, 248, 248, 0.979), 0 17px 50px 0 rgba(248, 248, 248, 0.911);
+}
+button{
+    position:relative;
+    left:35%;
+    border-radius:50%;
+    background-color: darkgoldenrod;
+    width: 8%;
+    height:8%;
+}
+div.fixed{
+    position: fixed;
+    color:cornsilk;
+    top:16%;
+    right:16%;
+}
+#azi{
+    border-radius:8px;
+    
+}
+h1{
+    color:cornsilk;
+    font-family:cursive
+}
+</style>
+    <body background="trig.jpg">
+        <h1>Robust Technologies</h1>
+        <p class="relative">Lattitude of the place</p>
+        <input id="lat"></input>
+        <br>
+        <p class="relative">Longitude of the place</p>
+        <input id="lon"></input>
+        <br>
+        <p class="relative">Hour gap with respect to GMT</p>
+        <input id="hourgap"></input>
+        <br>
+        <p class="relative">minutes gap with respect to GMT</p>
+    
+                <input id="minutes"></input>
+   <br> </br>
+   <br>
+        <button onclick="fn()">Submit</button>
+        <br></br>
+    <div class="fixed">
+        <p>The azimuth is</p>
+        <br>
+        <input id="azi"></input>
+    </div>
+    </body>
+</html>
+<script type="text/javascript">
+    function fn()
+    {
+        var lat=document.getElementById("lat").value;
+  var lon=document.getElementById("lon").value;
+  var hourGap=Number(document.getElementById("hourgap").value);
+  
+  var minGap=Number(document.getElementById("minutes").value);
+    
+  
+        var today = new Date();
+        var hour=Number(today.getHours());
+        var minutes=Number(today.getMinutes());
+        var seconds=Number(today.getSeconds());
+        var localTimeMins=Number(hour*60+minutes+seconds/60);
+        var GMTgap=Number(hourGap + (minGap)/60);
+        var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
+        var year=Number(today.getFullYear());
+        var date=Number(today.getDate());
+        var month=Number(today.getMonth());
+
+        var firstDate = new Date(year,01,01);
+        var secondDate = new Date(year,month+1,date);
+
+        var numDaysPassed =Math.round(Math.abs((Number(firstDate.getTime())-Number(secondDate.getTime()))/(Number(oneDay))));
+        var LSTM=15*GMTgap;
+    
+      var TC1=4*(lon-LSTM);
+ /*     function todeg(h)
+{
+    return (h* (180 / Math.PI));
+}
+*/
+var B=360/365*(numDaysPassed+1-81);
+
+var EOTcorr=9.87*Math.sin(2*B*180/Math.PI)-7.53*Math.cos(B*180/Math.PI)-1.5*Math.sin(B*180/Math.PI);
+var TC=TC1+EOTcorr;
+
+var localSolarTime=Number((localTimeMins+Number(TC)))/60;
+
+var hourAngle=Number(localSolarTime)-13;
+var hourAngle=Number(hourAngle)*15;
+var hp=360/365*(284+Number(numDaysPassed+1));
+var hp=Math.sin(Number(hp)*180/Math.PI)
+var decAngle=23.45*hp;
+
+
+var altitude=Math.asin(Math.sin(decAngle*180/Math.PI)*Math.sin(lat*180/Math.PI)+Math.cos(decAngle*180/Math.PI)*Math.cos(lat*180/Math.PI)*Math.cos(hourAngle*180/Math.PI));
+
+if (localSolarTime<12 || hourAngle<0)
+{    
+var azimuth=Math.acos((Math.sin(decAngle)*Math.cos(lat)-Math.cos(decAngle)*Math.sin(lat)*Math.cos(hourAngle))/Math.cos(altitude));
+
+}
+else
+{
+  var azimuth=360-(Math.acos((Math.sin(decAngle)*Math.cos(lat)-Math.cos(decAngle)*Math.sin(lat)*Math.cos(hourAngle))/Math.cos(altitude)));
+  }
+    document.getElementById("azi").value=azimuth;
+     }
+    
+</script>
+
+
