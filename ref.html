@@ -1,4 +1,7 @@
 <html>
+    <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <style>
 p {
     font-family: 'Times New Roman', Times, serif;
@@ -6,6 +9,8 @@ p {
     color: rgb(20, 49, 1);
     
 }
+a{color: lavenderblush;position: fixed;margin-top: 60px;}
+.about{color:lavenderblush;position: fixed;margin-top: 60px; right:8%;}
 .b2{
     position: relative;
     background-image: url("cloud.png");
@@ -27,7 +32,7 @@ box-shadow:10px 10px rgb(58, 57, 57);
 .b1{
     color: rgb(68, 25, 8);
     background-color:dodgerblue;
-    width: 30mm ;
+    width: 30px ;
 }
 .b1:hover {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
@@ -51,28 +56,92 @@ box-shadow:10px 10px rgb(58, 57, 57);
     width:20%;
 
 }
+
 .big{
     position: relative;
     left:10mm;
     box-shadow:10px 10px dimgray;
     background-image: url("robo.jpg");
-    background-size:     cover;                      /* <------ */
+    background-size:     cover;                      
     background-repeat:   no-repeat;
     background-position: center center; 
     width:22%;
-    -webkit-transition: width 2s; /* Safari */
+    -webkit-transition: width 2s;
   transition: width 2s;
 }
 .big:hover{
     width:27%;
 }
+
+
+body{
+    background:url(db.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+h2{color:rgb(233, 213, 213);
+font-family: Arial, Helvetica, sans-serif;
+font-size: 14px;
+}
+p{color:rgb(233, 213, 213);
+font-family: Arial, Helvetica, sans-serif;
+font-size: 14px;}
+h1{
+    color:lavenderblush;
+    margin-bottom: 30px;
+}
+@media only screen and (max-width: 700px) {
+body{
+    background-size: auto auto;
+    background-repeat: no-repeat;
+
+}
+p{font-size: 16px}
+.big{
+    position: relative;
+    left:10mm;
+    
+    box-shadow:10px 10px  lightgray;
+    background-image: url("robo.jpg");
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center; 
+    width:40%;
+    -webkit-transition: width 2s; /* Safari */
+  transition: width 2s;
+}
+
+.big:hover{
+    width:77%;}
+
+
+h1{font-family: Arial, Helvetica, sans-serif;
+font-size: 16px;
+margin-top: 30px;
+}
+
+.b1{
+    color: rgb(68, 25, 8);
+    background-color:rgb(8, 72, 136);
+    width: 39px;
+}
+.b1:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+}
 </style>
-<body background='iron_man.png'>
-<h1 id="12" style="color:darkblue;font-family:cursive">Welcome to Robust Technologies Inc</h1>
+    </head>
+
+<body>
+    <h1 id="12" style="text-align: center;">Welcome to Robust Technologies Inc</h1>
 <br>
-<hp style="color:rgba(16, 4, 85, 0.705);font-weight:bolder" >1.Do you want to contribute on dataset preparation?</p>
+
+<div class="main">
+<p  >1.Do you want to contribute on dataset preparation?</p>
 <br>
-<div class="container">
 <div class="big">
     <br>
 <select id="Choose" style="color:indigo;position:relative;width:25%;left:22mm">
@@ -83,6 +152,7 @@ box-shadow:10px 10px rgb(58, 57, 57);
 <button class="b1" style="position:relative;width:25%;left:22mm" onclick="yes_no()">Submit</button>
 <br></br>
 </div>
+</div>
 <br></br>
 <h2>2.Image Capturing website</h2>
     <br>
@@ -90,7 +160,7 @@ box-shadow:10px 10px rgb(58, 57, 57);
     <br></br>
 </div>
 <div class="q1">
-    <h1 style="color:black">3.The Azimuth Calculation</h1>
+    <h1>3.The Azimuth Calculation</h1>
     <button class="b3" onclick="azimuth()"></button>
 </div>
 <script type="text/javascript">
@@ -99,7 +169,6 @@ window.setTimeout("timeout()",3*60*1000);
         {
         var x=document.getElementById("Choose");
         var response=x.options[x.selectedIndex].value
-        alert("redirecting to gdrive")
             if(response=="yes")
             {
                  window.location.href="https://drive.google.com/drive/folders/1-nkq2rFRv4eOcBMhcY5unb0lqgy5g1nl"
@@ -108,7 +177,7 @@ window.setTimeout("timeout()",3*60*1000);
         function timeout()
         {
             
-            window.location.href="login.html"
+            window.location.href=url("index.html");
             
         }
         function fn()
@@ -118,29 +187,15 @@ window.setTimeout("timeout()",3*60*1000);
         }
         function azimuth()
         {
-            alert("Redirecting to Azimuth Calculations");
-            window.location.href="solar tracker.html"
+            window.location.href=url("solar tracker.html");
         }
 
         
     
 </script>
 <br>
-</body>
-
-<br></br>
-
-<br></br>
-
-<br></br>
-
-<br></br>
-
-<br></br>
-
-<br></br>
-<body style="color:green">
     <a href="https://github.com/Venseven">Creater</a>
-    <a href="about.html">About Us</a>
+    <a class="about" href="about.html">About Us</a>
 </body>
+
 </html>
