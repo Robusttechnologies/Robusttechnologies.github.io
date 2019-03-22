@@ -24,7 +24,7 @@ box-shadow:10px 10px rgb(58, 57, 57);
     width:17%;
     border-radius: 12px;
     border-color: rgb(18, 192, 223);
-    -webkit-transition: width 2s;
+    -webkit-transition: width 2s; /* Safari */
   transition: width 1s;
 }
 .b2:hover{
@@ -50,7 +50,7 @@ box-shadow:10px 10px rgb(58, 57, 57);
     width:17%;
     border-radius: 12px;
     border-color: rgb(9, 19, 20);
-    -webkit-transition: width 2s;
+    -webkit-transition: width 2s; /* Safari */
   transition: width 1s;
 }
 .b3:hover{
@@ -97,7 +97,7 @@ h1{
     margin-bottom: 30px;
     font-size: 20px;
 }
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 750px) {
 body{
     background-size: auto auto;
     background-repeat: no-repeat;
@@ -111,7 +111,7 @@ p{font-size: 16px}
     
     box-shadow:10px 10px rgba(0,0,0,0.24);
     background-image: url("robo.jpg");
-    background-size:     cover;                     
+    background-size:     cover;                      /* <------ */
     background-repeat:   no-repeat;
     background-position: center center; 
     width:40%;
@@ -141,7 +141,10 @@ margin-top: 30px;
     position:relative;
     left:-35px;
 }
-
+.creater{position:relative;right:-260px;}
+a{position: relative;
+left:20px;
+top:-30px;}
 }
 </style>
     </head>
@@ -176,9 +179,11 @@ margin-top: 30px;
     <button class="b3" onclick="azimuth()"></button>
 </div>
 <div class="ar">
-    <br></br>
+    <br></br><br>
     <a href="products.html">Products</a><br></br>
+    <div class="creater">
     <a href="https://github.com/Venseven">Website Creater</a><br></br>
+</div>
     <a href="about.html">About Us</a>
 </div>
 
@@ -216,3 +221,4 @@ window.setTimeout("timeout()",3*60*1000);
 </body>
 
 </html>
+
