@@ -1,43 +1,38 @@
-<html>
+   <html>
   <head>
       <meta name="viewport" content="width=device-width">
       <title>Azimuth calculations</title>
   </head>  
 <style>
-#lat{
-position: absolute;;
-height:7mm;
-width: 9%;
-left:44%;
-border-radius: 12px;
-border-bottom-color: cadetblue
+.latitude input{
+    position: fixed;
+    left:10%;
+    width:6%;
+    border-radius:30%;
+}
+.latitude p{
+    color:lavenderblush;
+}
+.longitude input{
+    position: fixed;
+    left:10%;
+    width:6%;
+    border-radius:30%;
+}
+.longitude p{color:lavenderblush;}
+.minutes input{position: fixed;
+    left:10%;
+    width:6%;
+    border-radius:30%;}
+.minutes p{color:lavenderblush;}
 
+.hourgap input{
+    position: fixed;
+    left:10%;
+    width:6%;
+    border-radius:30%;
 }
-#lon{
-position:absolute;
-height:7mm;
-width: 9%;
-left:44%;
-border-radius: 12px;
-border-bottom-color: cadetblue;
-}
-#hourgap{
-position:absolute;
-height:7mm;
-width: 9%;
-left:44%;
-border-radius: 12px;
-border-bottom-color: cadetblue;
-}
-#minutes{
-position:absolute;
-height:7mm;
-width: 9%;
-left:44%;
-border-radius: 12px;
-border-bottom-color: cadetblue;
--moz-border-right-colors: skyblue;
-}
+.hourgap p{color:lavenderblush;}
 
 .modal {
   display: none; 
@@ -73,26 +68,17 @@ border-bottom-color: cadetblue;
   text-decoration: none;
   cursor: pointer;}
 
-p.relative{
-    position:relative;left:23%;
-    top:7%;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: cornsilk;
-    }
 input:hover{
-    width:11%;
+    width:8%;
     box-shadow: 0 12px 16px 0 rgba(248, 248, 248, 0.979), 0 17px 50px 0 rgba(248, 248, 248, 0.911);
 }
 button{
     position:fixed;
-    color:lavenderblush;
-    left:50%;
-    right:50%;
-    top:95%;
-    border-radius:45%;
-    background-color: rgb(2, 41, 17);
-    width: 8%;
-    height:8%;
+    color:lightslategrey;
+    top:75%;
+    left:75%;
+    height:6%;
+    border-radius: 50px;
     -webkit-transition: width 2s; 
   transition: width 2s;
 }
@@ -133,23 +119,6 @@ p.relative{
     color:whitesmoke;
     margin-left:-75px;
 }
-input{
-    margin-left: -60px;
-    margin-top:64px;
-}
-#lon{
-    position: fixed;
-    width: 20%;}
-
-#lat{
-    position: fixed;
-    width: 20%;}
-#hourgap{
-    position: fixed;
-    width: 20%;}
-#minutes{
-    position: fixed;
-    width: 20%;}
 button{
     position: fixed;
     width: 20%;
@@ -173,19 +142,25 @@ body
 </style>
     <body>
         <h1>Robust Technologies</h1>
-        <p class="relative">Lattitude of the place</p>
+    <div class="latitude">
+        <p>Lattitude of the place</p>
         <input id="lat"></input>
+    </div>
         <br></br>
-        <p class="relative">Longitude of the place</p>
+    <div class="longitude">
+        <p>Longitude of the place</p>
         <input id="lon"></input>
+    </div>
         <br></br>
-        <p class="relative">Hour gap with respect to GMT</p>
+    <div class="hourgap">
+        <p>Hour gap with respect to GMT</p>
         <input id="hourgap"></input>
+    </div>
         <br></br>
-        <p class="relative">minutes gap with respect to GMT</p>
-    
-                <input id="minutes"></input>
-   <br>
+    <div class="minutes">
+        <p>minutes gap with respect to GMT</p>
+        <input id="minutes"></input>
+    </div>
    <button id="myBtn">Calculate</button>
    <div id="myModal" class="modal">
      <div class="modal-content">
