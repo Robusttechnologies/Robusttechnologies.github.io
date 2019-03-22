@@ -103,7 +103,7 @@ h1{
 }
 body
     {
-             position: fixed;
+        position: fixed;
         background-image: url("trig.jpg");
         background-repeat: no-repeat;
        background-position: center;
@@ -115,22 +115,28 @@ body
     left:10%;
     width:22%;
     border-radius:50px;
+    
 }
 .latitude p{
     color:lavenderblush;
-}
+    }
 .longitude input{
     position: fixed;
     left:10%;
     width:22%;
     border-radius:50px;
+
 }
-.longitude p{color:lavenderblush;}
+.longitude p{color:lavenderblush;
+    margin-top: 30%;
+}
 .minutes input{position: fixed;
     left:10%;
     width:22%;
     border-radius:50px;}
-.minutes p{color:lavenderblush;}
+.minutes p{color:lavenderblush;
+    margin-top: 30%;
+}
 
 .hourgap input{
     position: fixed;
@@ -138,7 +144,8 @@ body
     width:22%;
     border-radius:50px;
 }
-.hourgap p{color:lavenderblush;}
+.hourgap p{color:lavenderblush;
+    margin-top: 30%;}
 
 input:hover{
     width:24%;
@@ -156,7 +163,7 @@ p.relative{
     color:whitesmoke;
     margin-left:-75px;
 }
-button{
+.bu{
     position: fixed;
     width: 20%;
     top:60%;
@@ -168,12 +175,13 @@ button{
 button:hover{width:22%}
 body
     {
-              position: fixed;
+        position: fixed;
         background-color:black;
         background-image: url("trig_mob.jpg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
+        overflow:scroll;
 
         }
     }
@@ -199,7 +207,9 @@ body
         <p>minutes gap with respect to GMT</p>
         <input id="minutes"></input>
     </div>
+    <div class="bu">
    <button id="myBtn">Calculate</button>
+</div>
    <div id="myModal" class="modal">
      <div class="modal-content">
        <span class="close">&times;</span>
