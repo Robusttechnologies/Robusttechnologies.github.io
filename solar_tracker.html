@@ -179,9 +179,18 @@ body
         background-image: url("trig_mob.jpg");
         background-repeat: no-repeat;
         background-position: center;
-        background-size: cover;
         background-attachment: fixed;
+        background-size: cover;
+overflow: auto;
         }
+.gap{color:beige;
+ background-color: black;
+ position: fixed;
+ top:120%;
+ width: 250%;
+ overflow:scroll;
+ }
+
     }
 </style>
     <body>
@@ -216,9 +225,11 @@ body
      </div>
    
    </div>
-   
+   <div class="gap">
+       <br></br><br></br><br></br>
+       <p>hai</p>
+   </div>
    <script>
-   
    var innerScreenHeight = window.innerHeight;
 document.querySelector("#bu").style.top = innerScreenHeight + "px";
    var modal = document.getElementById('myModal');
