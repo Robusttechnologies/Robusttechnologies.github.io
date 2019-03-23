@@ -1,56 +1,74 @@
  <html>
     <head>
         <title>
-            Azimuth_test</title>
+            Azimuth Calculations</title>
             <iframe src="http://free.timeanddate.com/clock/i6oq0rm4/n771/tlin/fn8/fcfff/tc001532/ftb/th2" frameborder="0" width="95" height="18"></iframe>
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-       </head>
-       <style>
-       .container{
-       }
+            <link href="https://fonts.googleapis.com/css?family=Germania+One|Teko" rel="stylesheet"> 
+            <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Fredericka+the+Great|Germania+One|Mirza|Teko" rel="stylesheet">
+
+            <style>
     h2{
         text-align: center;
-        color:lavenderblush;
+        color:silver;
+        font-family: 'Fredericka the Great', cursive;
+
+    }
+    #myBtn{
+        background-color: #373737;
+        border:none;
+        color:white;
     }
     h4{
-        margin-bottom: 3%;
-        color:lavenderblush;
+        margin-bottom: 5%;
+        font-family: 'Mirza', cursive;
+        font-size:30px;
+        color:whitesmoke;
     }
-    p{
-        margin-left: 6%;
-        color: lavenderblush
-    }
+    p{  margin-left: 6%;
+        color:whitesmoke;
+font-family: 'Mirza', cursive;    }
     #lat,#lon{
-        margin-left: 9%;
+        margin-left: 29%;
         border-radius: 50px;
         width:50%;
+        background-color:#9e9e9e;
+        height: 08%;
         -webkit-transition: width 2s; 
   transition: width 2s;
         
     }
     #hourgap,#minutes{
-        margin-left: 9%;
+        margin-left: 29%;
         border-radius: 50px;
         width:50%;
+        height: 08%;
+        background-color:#9e9e9e;
         -webkit-transition: width 2s; 
   transition: width 2s;
        
     }
-    #submit{
+    #my{
+        margin-top: 9%;
         text-align: center;
-        margin-top: 20%;
-        margin-bottom:120%;}
+        margin-left: 45%;
+    }
+        
         button{
-            width:30%;
+            width:120%;
+            margin-top: 50%;
 border-radius: 50px;
+margin-bottom: 320%;
+text-align: center;
+height: 10%;
         -webkit-transition: width 2s; 
   transition: width 2s;
 
     }
     button:hover
         {
-            width:33%;
+            width:140%;
     box-shadow: 0 12px 16px 0 rgba(248, 248, 248, 0.979), 0 17px 50px 0 rgba(248, 248, 248, 0.911);
 }
         
@@ -59,6 +77,10 @@ border-radius: 50px;
     width:55%;
     box-shadow: 0 12px 16px 0 rgba(248, 248, 248, 0.979), 0 17px 50px 0 rgba(248, 248, 248, 0.911);
 }
+.h4{
+    color:whitesmoke;
+    font-family: 'Teko', sans-serif;
+    }
 #hourgap:hover,#minutes:hover{
     width:55%;
     box-shadow: 0 12px 16px 0 rgba(248, 248, 248, 0.979), 0 17px 50px 0 rgba(248, 248, 248, 0.911);
@@ -68,63 +90,229 @@ body{
     background-position: center;
     background-size: cover;
 }
+input{
+    text-align: center;
+    margin-top: 5%;
+}
+.close {
+  color: #adadad;
+  float: right;
+  font-size: 28px;
+
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: rgb(245, 245, 245);
+  text-decoration: none;
+  cursor: pointer;}
+.modal {
+  display: none; 
+  position: fixed;   z-index: 1;   padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  overflow:aut0;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+  margin: auto;
+  background-color:black;
+  padding: 20px;
+  text-align: center;
+  font-family: cursive;
+  font-weight: bold;
+  font-size: 120%;
+  border: 1px solid #888;
+  border-radius: 50px;
+  width: 100%;
+}
        </style>
             <body>
                 <div class="container">
-                  <br>
+                  <br></br>
                     <h2>Robust Technologies</h2>
                     
-                                            <br>
+                                            <br></br>
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2" id="lat1">
                             <h4>
-                                Lattitude
+                                Lattitude :
                             </h4>
-                            <input id="lat"></input>
+                            <input id="lat" type="number"></input><br>
                         </div> 
                         <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2">
  
                         </div>
                         </div>
-                        <br>
+                        <br></br>
                 <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2">
                                 <h4>
-                                    Longitude
+                                    Longitude :
                                 </h4>
-                                <input id="lon"></input>
+                                <input id="lon" type="number"></input>
 
                             </div> 
                         </div>
-                        <br>
+                        <br></br>
                 <div class="row">           
                         <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2">
                                 <h4>
-                                    Hourgap
+                                    Hourgap :
                                 </h4>
                                 <p>with respect to the GMT</p>
-                                <input id="hourgap"></input>
+                                <input id="hourgap" type="number"></input>
 
                             </div> 
                             </div>
-                            <br>
+                            <br></br>
                             <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2">
                                 <h4>
-                                    Minutesgap
+                                    Minutesgap :
                                 </h4>
                                 
                                 <p>with respect to the GMT</p>   
-                                <input id="minutes"></input>
+                                <input id="minutes" type="number"></input>
                                 
                             </div> 
                     </div>
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="submit">
-                            <button type="submit">Calculate</button>
+                        
+                    </div>
+                    <div class="row" id="my">
+                            <div class="col-xs-12" >
+                                    <button type="submit" id="myBtn">Calculate</button>
+                                    <div id="myModal" class="modal">
+                                    <div class="modal-header">
+                                            <h4 class="modal-title">Azimuth</h4>
+                                  <button class="close" data-dismiss="modal">&times;</button>      
+                                    </div>        
+                                    <div class="modal-content">
+                                            
+                                              <p id="azi">Azimuth</p>
+                                            </div>
+                                          
+                                          </div>
+                                          
+                            </div>
                         </div>
                     </div>
+                              
+                      
                     <br></br>
-                </div>
-            </body>
+                </div>  
+                
+   <script>
+        var modal = document.getElementById('myModal');
+        var btn = document.getElementById("myBtn");
+        var span = document.getElementsByClassName("close")[0];
+        btn.onclick = function() {
+     
+         function cosd(x)
+             {
+              var x=x*Math.PI/180;
+             var y=Math.cos(x);
+             return y;
+             }
+             function sind(x){
+                 var x=x*Math.PI/180;
+             var y=Math.sin(x);
+             return y;
+             }
+         
+             function acosd(x)
+             {
+              
+             var y=Math.acos(x);
+             var y=y*180/Math.PI;
+             return y;
+             }
+             function asind(x){
+             var y=Math.asin(x);
+             var y=y*180/Math.PI;
+             return y;
+             }  
+     
+             var lat=document.getElementById("lat").value;
+               var lon=document.getElementById("lon").value;
+       var hourGap=Number(document.getElementById("hourgap").value);
+       
+       var minGap=Number(document.getElementById("minutes").value);
+         
+       if(lat==0 || lon ==0){
+           alert("enter all the fields")
+           var azimuth=Nan;     
+            }
+            else{
+             var today = new Date();
+             var hour=Number(today.getHours());
+             var minutes=Number(today.getMinutes());
+             var seconds=Number(today.getSeconds());
+             var localTimeMins=(Number(hour)*60+Number(minutes)+Number(seconds)/60);
+     
+     
+             var GMTgap=Number(hourGap + (minGap)/60);
+             var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
+             var year=Number(today.getFullYear());
+             var date=Number(today.getDate());
+             var month=Number(today.getMonth());
+     
+             var firstDate = new Date(year,01,01);
+             var secondDate = new Date(year,month+1,date);
+     
+             var numDaysPassed =Math.round(Math.abs((Number(firstDate.getTime())-Number(secondDate.getTime()))/(Number(oneDay))));
+             var LSTM=15*GMTgap;
+        
+           var TC1=4*(lon-LSTM);
+      var numDaysPassed=numDaysPassed+1;
+     var B=360/365*(numDaysPassed-81);
+     
+     var EOTcorr=9.87*sind(2*B)-7.53*cosd(B)-1.5*sind(B);
+     var TC=TC1+EOTcorr;
+     
+     var localSolarTime=Number((localTimeMins+Number(TC)))/60;
+     
+     var hourAngle=Number(localSolarTime)-12;
+     var hourAngle=Number(hourAngle)*15;
+     
+     
+     var hp=360/365*(284+Number(numDaysPassed));
+     var hp=sind(Number(hp))
+     var decAngle=23.45*hp;
+     
+     
+     
+     var altitude=asind(sind(decAngle)*sind(lat)+cosd(decAngle)*cosd(lat)*cosd(hourAngle));
+     
+      
+     if (localSolarTime<12 || hourAngle<0)
+     {    
+     var azimuth=acosd((sind(decAngle)*cosd(lat)-cosd(decAngle)*sind(lat)*cosd(hourAngle))/cosd(altitude));
+     
+     }
+     else
+     {
+       var azimuth=360-(acosd((sind(decAngle)*cosd(lat)-cosd(decAngle)*sind(lat)*cosd(hourAngle))/cosd(altitude)));
+       }
+            document.getElementById("azi").innerHTML=azimuth + "°";
+          modal.style.display = "block";
+        }
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+            }
+     
+     
+        </script>
+     
+                      </body>
 </html>
