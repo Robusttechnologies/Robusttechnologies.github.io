@@ -1,344 +1,130 @@
  <html>
-  <head>
-      <meta name="viewport" content="width=device-width">
-      <title>Azimuth calculations</title>
-  </head>  
-<style>
-.latitude input{
-    position: fixed;
-    left:10%;
-    width:6%;
-    border-radius:30%;
-}
-.latitude p{
-    color:lavenderblush;
-}
-.longitude input{
-    position: fixed;
-    left:10%;
-    width:6%;
-    border-radius:30%;
-}
-.longitude p{color:lavenderblush;}
-.minutes input{position: fixed;
-    left:10%;
-    width:6%;
-    border-radius:30%;}
-.minutes p{color:lavenderblush;}
-
-.hourgap input{
-    position: fixed;
-    left:10%;
-    width:6%;
-    border-radius:30%;
-}
-.hourgap p{color:lavenderblush;}
-
-.modal {
-  display: none; 
-  position: fixed;   z-index: 1;   padding-top: 100px; 
-  left: 0;
-  top: 0;
-  width: 100%; 
-  height: 100%;
-  overflow:aut0;
-  background-color: rgb(0,0,0); 
-  background-color: rgba(0,0,0,0.4); 
-}
-
-.modal-content {
-  background-color:black;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  border-radius: 50px;
-  width: 80%;
-    height: 150px;
-}
-
-.close {
-  color: #adadad;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-.close:hover,
-.close:focus {
-  color: rgb(2, 46, 11);
-  text-decoration: none;
-  cursor: pointer;}
-
-input:hover{
-    width:8%;
-    box-shadow: 0 12px 16px 0 rgba(248, 248, 248, 0.979), 0 17px 50px 0 rgba(248, 248, 248, 0.911);
-}
-button{
-    position:fixed;
-    color:lightslategrey;
-    top:75%;
-    left:75%;
-    height:6%;
-    border-radius: 50px;
-    -webkit-transition: width 2s; 
-  transition: width 2s;
-}
-button:hover{
-    width:9%;
-    box-shadow: 0 12px 16px 0 rgba(248, 248, 248, 0.979), 0 17px 50px 0 rgba(248, 248, 248, 0.911);
-}
-.azimuth{
-       color:cornsilk;
-        margin-top: 90px;
-}
-
-#azi{
-    border-radius:8px;
-    width:150px;
-    height:40px;
-    
-}
-h1{
-    color:cornsilk;
-    font-family:cursive;
-}
-body
-    {
-        position: fixed;
-        background-image: url("trig.jpg");
-        background-repeat: no-repeat;
-       background-position: center;
-        background-size: cover;
-        }
-@media only screen and (max-width: 700px) {
-    .latitude input{
-    position: fixed;
-    left:10%;
-    width:22%;
-    border-radius:50px;
-    
-}
-.latitude p{
-    color:lavenderblush;
-    }
-.longitude input{
-    position: fixed;
-    left:10%;
-    width:22%;
-    border-radius:50px;
-
-}
-.longitude p{color:lavenderblush;
-    margin-top: 30%;
-}
-.minutes input{position: fixed;
-    left:10%;
-    width:22%;
-    border-radius:50px;}
-.minutes p{color:lavenderblush;
-    margin-top: 30%;
-}
-
-.hourgap input{
-    position: fixed;
-    left:10%;
-    width:22%;
-    border-radius:50px;
-}
-.hourgap p{color:lavenderblush;
-    margin-top: 30%;}
-
-input:hover{
-    width:24%;
-    box-shadow: 0 12px 16px 0 rgba(248, 248, 248, 0.658), 0 17px 50px 0 rgba(248, 248, 248, 0.911);
-}
-
-
-h1{
-    color:lavenderblush;
-    font-size: 23px;
-    margin-top: 30px;
-    margin-left: 40%;
-}
-p.relative{
-    color:whitesmoke;
-    margin-left:-75px;
-}
-.bu{
-    position: fixed;
-    width: 20%;
-    top:60%;
-    left:50%;
-    -webkit-transition: width 2s; 
-  transition: width 2s;
-
-}
-button:hover{width:22%}
-body
-    {
-        background-color:black;
-        background-image: url("trig_mob.jpg");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-attachment: fixed;
-        background-size: cover;
-overflow: auto;
-        }
-.gap{color:beige;
- background-color: black;
- position: fixed;
- top:120%;
- width: 250%;
- overflow:scroll;
- }
-
-    }
-</style>
-    <body>
-        <h1>Robust Technologies</h1>
-    <div class="latitude">
-        <p>Lattitude of the place</p>
-        <input id="lat"></input>
-    </div>
-        <br></br>
-    <div class="longitude">
-        <p>Longitude of the place</p>
-        <input id="lon"></input>
-    </div>
-        <br></br>
-    <div class="hourgap">
-        <p>Hour gap with respect to GMT</p>
-        <input id="hourgap"></input>
-    </div>
-        <br></br>
-    <div class="minutes">
-        <p>minutes gap with respect to GMT</p>
-        <input id="minutes"></input>
-    </div>
-    <div class="bu">
-   <button id="myBtn">Calculate</button>
-</div>
-   <div id="myModal" class="modal">
-     <div class="modal-content">
-       <span class="close">&times;</span>
-       <h1 style="color:whitesmoke;text-align:center">The azimuth is</h1>
-       <p style="color:whitesmoke;position: fixed;left:40%" id="azi">the</p>
-     </div>
-   
-   </div>
-   <div class="gap">
-       <br></br><br></br><br></br>
-       <p>hai</p>
-   </div>
-   <script>
-   var innerScreenHeight = window.innerHeight;
-document.querySelector("#bu").style.top = innerScreenHeight + "px";
-   var modal = document.getElementById('myModal');
-   var btn = document.getElementById("myBtn");
-   var span = document.getElementsByClassName("close")[0];
-   btn.onclick = function() {
-
-    function cosd(x)
-        {
-         var x=x*Math.PI/180;
-        var y=Math.cos(x);
-        return y;
-        }
-        function sind(x){
-            var x=x*Math.PI/180;
-        var y=Math.sin(x);
-        return y;
-        }
-    
-        function acosd(x)
-        {
-         
-        var y=Math.acos(x);
-        var y=y*180/Math.PI;
-        return y;
-        }
-        function asind(x){
-        var y=Math.asin(x);
-        var y=y*180/Math.PI;
-        return y;
-        }  
-
-        var lat=document.getElementById("lat").value;
-          var lon=document.getElementById("lon").value;
-  var hourGap=Number(document.getElementById("hourgap").value);
-  
-  var minGap=Number(document.getElementById("minutes").value);
-    
-  if(lat==0 || lon ==0){
-      alert("enter all the fields")
-      var azimuth=Nan;     
+    <head>
+        <title>
+            Azimuth_test</title>
+            <iframe src="http://free.timeanddate.com/clock/i6oq0rm4/n771/tlin/fn8/fcfff/tc001532/ftb/th2" frameborder="0" width="95" height="18"></iframe>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+       </head>
+       <style>
+       .container{
        }
-       else{
-        var today = new Date();
-        var hour=Number(today.getHours());
-        var minutes=Number(today.getMinutes());
-        var seconds=Number(today.getSeconds());
-        var localTimeMins=(Number(hour)*60+Number(minutes)+Number(seconds)/60);
+    h2{
+        text-align: center;
+        color:lavenderblush;
+    }
+    h4{
+        margin-bottom: 3%;
+        color:lavenderblush;
+    }
+    p{
+        margin-left: 6%;
+        color: lavenderblush
+    }
+    #lat,#lon{
+        margin-left: 9%;
+        border-radius: 50px;
+        width:50%;
+        -webkit-transition: width 2s; 
+  transition: width 2s;
+        
+    }
+    #hourgap,#minutes{
+        margin-left: 9%;
+        border-radius: 50px;
+        width:50%;
+        -webkit-transition: width 2s; 
+  transition: width 2s;
+       
+    }
+    #submit{
+        text-align: center;
+        margin-top: 20%;
+        margin-bottom:120%;}
+        button{
+            width:30%;
+border-radius: 50px;
+        -webkit-transition: width 2s; 
+  transition: width 2s;
 
-
-        var GMTgap=Number(hourGap + (minGap)/60);
-        var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
-        var year=Number(today.getFullYear());
-        var date=Number(today.getDate());
-        var month=Number(today.getMonth());
-
-        var firstDate = new Date(year,01,01);
-        var secondDate = new Date(year,month+1,date);
-
-        var numDaysPassed =Math.round(Math.abs((Number(firstDate.getTime())-Number(secondDate.getTime()))/(Number(oneDay))));
-        var LSTM=15*GMTgap;
-   
-      var TC1=4*(lon-LSTM);
- var numDaysPassed=numDaysPassed+1;
-var B=360/365*(numDaysPassed-81);
-
-var EOTcorr=9.87*sind(2*B)-7.53*cosd(B)-1.5*sind(B);
-var TC=TC1+EOTcorr;
-
-var localSolarTime=Number((localTimeMins+Number(TC)))/60;
-
-var hourAngle=Number(localSolarTime)-12;
-var hourAngle=Number(hourAngle)*15;
-
-
-var hp=360/365*(284+Number(numDaysPassed));
-var hp=sind(Number(hp))
-var decAngle=23.45*hp;
-
-
-
-var altitude=asind(sind(decAngle)*sind(lat)+cosd(decAngle)*cosd(lat)*cosd(hourAngle));
-
+    }
+    button:hover
+        {
+            width:33%;
+    box-shadow: 0 12px 16px 0 rgba(248, 248, 248, 0.979), 0 17px 50px 0 rgba(248, 248, 248, 0.911);
+}
+        
+    
+    #lat:hover,#lon:hover{
+    width:55%;
+    box-shadow: 0 12px 16px 0 rgba(248, 248, 248, 0.979), 0 17px 50px 0 rgba(248, 248, 248, 0.911);
+}
+#hourgap:hover,#minutes:hover{
+    width:55%;
+    box-shadow: 0 12px 16px 0 rgba(248, 248, 248, 0.979), 0 17px 50px 0 rgba(248, 248, 248, 0.911);
+}
+body{
+    background-image: url("trig_mob.jpg");
+    background-position: center;
+    background-size: cover;
+}
+       </style>
+            <body>
+                <div class="container">
+                  <br>
+                    <h2>Robust Technologies</h2>
+                    
+                                            <br>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2" id="lat1">
+                            <h4>
+                                Lattitude
+                            </h4>
+                            <input id="lat"></input>
+                        </div> 
+                        <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2">
  
-if (localSolarTime<12 || hourAngle<0)
-{    
-var azimuth=acosd((sind(decAngle)*cosd(lat)-cosd(decAngle)*sind(lat)*cosd(hourAngle))/cosd(altitude));
+                        </div>
+                        </div>
+                        <br>
+                <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2">
+                                <h4>
+                                    Longitude
+                                </h4>
+                                <input id="lon"></input>
 
-}
-else
-{
-  var azimuth=360-(acosd((sind(decAngle)*cosd(lat)-cosd(decAngle)*sind(lat)*cosd(hourAngle))/cosd(altitude)));
-  }
-       document.getElementById("azi").innerHTML=azimuth + "°";
-     modal.style.display = "block";
-   }
-   span.onclick = function() {
-     modal.style.display = "none";
-   }
-   window.onclick = function(event) {
-     if (event.target == modal) {
-       modal.style.display = "none";
-     }
-   }
-       }
+                            </div> 
+                        </div>
+                        <br>
+                <div class="row">           
+                        <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2">
+                                <h4>
+                                    Hourgap
+                                </h4>
+                                <p>with respect to the GMT</p>
+                                <input id="hourgap"></input>
 
-
-   </script>
-
-</body>
+                            </div> 
+                            </div>
+                            <br>
+                            <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2">
+                                <h4>
+                                    Minutesgap
+                                </h4>
+                                
+                                <p>with respect to the GMT</p>   
+                                <input id="minutes"></input>
+                                
+                            </div> 
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="submit">
+                            <button type="submit">Calculate</button>
+                        </div>
+                    </div>
+                    <br></br>
+                </div>
+            </body>
 </html>
-   
