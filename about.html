@@ -1,79 +1,43 @@
 <html>
-
-<head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
-        products
-    </title>
-</head>
-<style>
-    body{
-        background-color: black;
-    }
-    h1{
-        margin-top: 30px;
-        text-align: center;
-        color:whitesmoke;
-        margin-bottom: 40px;
-    }
-    video{
-        margin-bottom: 50px;
-        position:relative;
-        left:190px;
-    }
-    a{
-        position:relative;
-        left:45%;
-        color: darkgreen;
-    }
-p{
-    color:lavenderblush;
-    text-align: center;
-}
-@media only screen and (max-width: 600px) {
-    
-    body{
-        background-color:darkgrey;
-        background-position: center;
-        
-    }
-    h1{
-        margin-top: 20px;
-        color:black;
-        position: relative;
-        left:-80px;
-        font-size: 18px;
-        margin-bottom: 10px;
-    }
-    video{
-        position:relative;
-        width: 60%;
-        left:39px;
-    }
-    a{
-        position:relative;
-        left:17%;
-        color:rgb(6, 56, 122);
-        font-size: 19px;
-    }
-p{
-    color:black;
-    font-size: 15px; position:relative;
-       left:3%;
-       margin-top: 20px;
+    <head>
+            <meta name="viewport" content="width=device-width">
+        <title>About Us</title>
        
+    </head>
+    <style>
+        @media only screen and (max-width: 750px) {
+.team{
+    margin-top: 10%;
+}
+.main{
+    position: fixed;
+    top:20%;
+    background: darkslategray;
+    
+}
+.contrib{
+    position: fixed;
+    top:40%;
+    background: darkslategray;
+    
+}
+
+body{
+    background: darkgray
 }
 }
-</style>
-<body>
-    <h1>Augmented Reality</h1>
-    <br>
-    <video src="ROBUST.mp4" controls></video>
-    <br>
-    <h1>Automated Solar panel</h1>
-    <a href="https://github.com/Venseven/solar-tracker">click here</a>
-    <br></br>
-    <h1>Artificial Intelligence</h1>
-    <p>NLP,Computer vision and open source library devoloping</p>
-</body>
+    </style>
+    <body>
+        <div class="team">
+        <h1>Team Robust</h1>
+    
+        <div class="main">
+        <p >Venkatesh,Vignesh S,Rahul,Vaghesan,Rooban Chakaravarthy</p>
+    </div>
+    <div class="contrib">
+        <h2>Contributors</h2>
+            <p>Sabharish,Vignesh Balajee(Exec Designer),Sakthi</p>
+        </div>
+    </div>
+    </body>
 </html>
