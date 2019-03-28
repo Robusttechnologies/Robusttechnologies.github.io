@@ -1,0 +1,529 @@
+<html>
+    <head>
+           
+          <title>
+            Azimuth Calculator v1.0</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css" integrity="sha384-Mmxa0mLqhmOeaE8vgOSbKacftZcsNYDjQzuCOm6D02luYSzBG8vpaOykv9lFQ51Y" crossorigin="anonymous">
+            <link href="https://fonts.googleapis.com/css?family=Germania+One|Teko" rel="stylesheet"> 
+            <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Fredericka+the+Great|Germania+One|Mirza|Teko" rel="stylesheet">
+            <script
+            src="http://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Flip/1.1.2/jquery.flip.min.js"></script>
+          
+            <style>
+    h2{
+        text-align: center;
+        color:#05020a;
+        margin-top:60px;
+        font-family: 'Fredericka the Great', cursive;
+    }
+ 
+    #myBtn{
+        background-color: #373737;
+        border:none;
+        color:white;
+    }
+    h4{
+        margin-bottom: 10px;
+        margin-top: 10%;
+        font-size: 20px;
+        font-family: 'Mirza', cursive;
+        color:whitesmoke;
+    }
+    p{  margin-left: 6%;
+        color:whitesmoke;
+font-family: 'Mirza', cursive;    }
+    #lat,#lon{
+    margin-top: -3px;    
+        border-radius: 10px;
+        width:50%;
+        background-color:#9e9e9e;
+        height: 16%;
+        -webkit-transition: width 2s; 
+  transition: width 2s;
+        
+    }
+    #hourgap,#minutes{
+        margin-left: 29%;
+        border-radius: 50px;
+        width:55%;
+        height: 08%;
+        background-color:#9e9e9e;
+        -webkit-transition: width 2s; 
+  transition: width 2s;
+       
+    }
+    #my{
+        margin-top: 9%;
+        text-align: center;
+        margin-left: 45%;
+    }
+        
+#myBtn{
+            width:100%;
+            margin-top: 15%;
+border-radius: 50px;
+margin-bottom: 20%;
+text-align: center;
+height: 10%;
+        -webkit-transition: width 2s; 
+  transition: width 2s;
+    }
+    #myBtn:hover
+        {
+            width:105%;
+    box-shadow: 0 12px 16px 0 rgba(248, 248, 248, 0.979), 0 17px 50px 0 rgba(248, 248, 248, 0.911);
+}
+        
+    
+    #lat:hover,#lon:hover{
+    width:55%;
+    box-shadow: 0 12px 16px 0 rgba(248, 248, 248, 0.685), 0 17px 50px 0 rgba(248, 248, 248, 0.911);
+}
+.h4{
+    color:whitesmoke;
+    font-family: 'Teko', sans-serif;
+    }
+#hourgap:hover,#minutes:hover{
+    width:57%;
+    box-shadow: 0 12px 16px 0 rgba(248, 248, 248, 0.671), 0 17px 50px 0 rgba(248, 248, 248, 0.911);
+}
+body{
+    background-color:darkgrey;
+    background-position: center;
+    background-size: cover;
+}
+input{
+    text-align: center;
+    margin-top: 5%;
+}
+.close {
+  color: #099604;
+  font-size: 28px;
+  float:right;
+  text-align: end;
+margin-top:20px;
+}
+.close:hover,
+.close:focus {
+  color: rgb(223, 7, 7);
+  text-decoration: none;
+  text-align: end;
+  cursor: pointer;}
+  #map {
+        height: 225px;
+      }
+     
+.modal {
+  display: none; 
+  position: fixed;   z-index: 1;   padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  overflow:auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+.modal-content {
+  margin: auto;
+  background-color:#6566b69a;
+  padding: 20px;
+  text-align: center;
+  font-family: cursive;
+  font-weight: bold;
+  font-size: 120%;
+  border: 1px solid #888;
+  border-radius: 10px;
+  width: 100%;
+}
+.front{
+            background-color:rgba(0, 0, 0, 0.692);
+            
+           position: absolute;
+           z-index: 333;
+           width:300px;
+            height:200px;           
+        }
+        .back{ background-color:rgba(0, 0, 0, 0.692);
+            position: absolute;
+            width:300px;
+            height:200px;
+            
+        }  
+        #card,#card-2 {
+            text-align: center;
+            cursor: pointer;
+            height:200px;
+            width:200px;     
+        }   
+    #ga{
+    margin-left:110px;
+    color:beige;
+        background-color:rgba(0, 0, 0, 0);
+        border: none;
+        margin-top:30px;    
+    }
+    #loc{
+        background-color:#9575cd;
+        border: none;
+        border-radius: 5px;
+        color:black;
+        font-weight: bold;
+    }
+    #ba{
+    margin-top:5px;
+    margin-left:110px;
+        color:beige;
+        background-color:rgba(0, 0, 0, 0);
+        border: none;
+    }
+    .back2{
+        background:#616161;
+        background-size: cover;
+    }
+    #ga1{        background-color:rgba(0, 0, 0, 0);
+    border:none;
+    color:beige;
+    margin-top:15px;
+    margin-right:110px;
+    }
+    #ba1{
+        margin-right:110px;
+        margin-top:10px;
+         color:beige;
+        background-color:rgba(0, 0, 0, 0);
+        border: none;
+   }
+   #clea{
+    background-color:#9575cd;
+        border: none;
+        border-radius: 5px;
+        margin-top:25px;
+        font-weight: bold;
+   }
+   #azi{
+       color:black;
+   }
+   nav {
+       position: absolute;
+    background:#212121;
+    width: 100%;
+}
+
+nav ul {
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;  list-style-type: none;margin: 0;
+    padding: 10px 0; 
+}
+    nav ul li:hover {
+        background:#cfd8dc;  }
+
+nav ul li a {
+    color:white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 12px;
+}
+    nav ul li a:hover {
+        color:black;
+        text-decoration: none;
+    }
+        </style>
+       </head> 
+            <body>
+                    <nav>
+                            <ul>
+                                <li><a href="ref.html">Home</a></li>
+                                <li><a href="products.html">Products</a></li>
+                                <li><a href="https://goo.gl/maps/T3LfoubTTDG2">Locations</a></li>
+                                <li><a href="about.html">About</a></li>
+                                <li><a href="https://github.com/Venseven">Contact</a></li>
+                            </ul>
+                        </nav>
+          
+                <div class="container">
+                  <br></br>
+                    <h2>Azimuth Calculator v1.0</h2>
+                    
+                                            <br></br>
+                    <div class="row" >
+                        <div class="col-lg-4 col-md-4 col-sm-5 col-12 mx-5">
+                                <div id="card-2">                            
+                                        <div class="front">
+                                                <h4>Your Location</h4>
+                                                <i style="color:rgb(17, 162, 247);font-size:50px;" class="fas fa-map-marked-alt"></i>
+                                       <br> </br>
+                                                <button  onclick="ba()" id="loc">Get coords</button>
+                                         <button id="ba">>>>></button>
+                         
+                                        </div>
+                                        
+                                        <div class="back">
+                                                <h4>Other Location</h4>
+                                                <i style="font-size:70px;color:white;;" class="far fa-keyboard"></i>
+                                                <br>
+                                                <button id="clea" onclick="clea()">Type coords</button>
+     </br>                                           <button id="ba1"><<<<</button>
+                        
+                                                </br>    
+                                         </div>
+                                    </div>  
+                        
+                         </div>
+                    <div class="col-lg-4 col-md-4 col-sm-5 col-12 mx-5">
+                            <div id="card">                            
+                                    <div class="front">
+                                            <h4>Latitude and Longitude</h4>
+                                            <i style="color:green;font-size:75px;" class="fas fa-compass"></i>
+                                            <br>
+                                            <button id="ga">>>>></button>
+                                        </div>
+                                    
+                                    <div class="back">
+                                            <h4>Lattitude:</h4>
+                                            <input id="lat" type="number"></input><br>
+                                            <h4>
+                                                    Longitude:
+                                            </h4>
+                                            <input id="lon" type="number"></input>
+                                            
+                                            </br>    
+                                            <button id="ga1"><<<<</button>
+                            
+                                            <br></br>    
+                                           
+                                        </div>
+                                </div>  
+                      
+                    
+                    </div>
+                    </div>
+                </br>
+                    <div class="back2">
+                <div class="row">           
+                        <div class="col-lg-4 col-md-4 col-sm-2 col-6 ml-5">
+                                <h4>
+                                    Hourgap :
+                                </h4>
+                                <p>with respect to the GMT</p>
+                                <input id="hourgap" type="number"></input>
+                            </div> 
+                            </div>
+                <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-2 col-6 ml-5">
+                                <h4>
+                                    Minutesgap :
+                                </h4>
+                                
+                                <p>with respect to the GMT</p>   
+                                <input id="minutes" type="number"></input>
+                            
+                            </div> 
+                    </div>
+                                            <br></br>
+                </div>
+                    </div>
+                    <div class="row" id="my">
+                            <div class="col-md-4 col-6" >
+                                    <button type="submit"  id="myBtn">Calculate</button>
+                                    </br>
+                                    <div id="myModal" class="modal">
+                                    <div class="modal-header">
+                                            <h4 class="modal-title">Calculated results</h4>
+                                    </div>        
+                                    <div class="modal-content">
+                                            <button class="close" data-dismiss="modal">&times;</button>      
+                                  
+                                              <p id="azi">Azimuth</p>
+                                            </div>
+                                          
+                                          </div>
+                                          
+                            </div>
+                        </div>
+                    </div>
+                              
+                 </div>  
+                
+   <script>
+        var modal = document.getElementById('myModal');
+        var btn = document.getElementById("myBtn");
+        var span = document.getElementsByClassName("close")[0];
+    
+    btn.onclick = function() {
+     
+         function cosd(x)
+             {
+              var x=x*Math.PI/180;
+             var y=Math.cos(x);
+             return y;
+             }
+             function sind(x){
+                 var x=x*Math.PI/180;
+             var y=Math.sin(x);
+             return y;
+             }
+         
+             function acosd(x)
+             {
+              
+             var y=Math.acos(x);
+             var y=y*180/Math.PI;
+             return y;
+             }
+             function asind(x){
+             var y=Math.asin(x);
+             var y=y*180/Math.PI;
+             return y;
+             }  
+     
+             var lat=document.getElementById("lat").value;
+               var lon=document.getElementById("lon").value;
+       var hourGap=Number(document.getElementById("hourgap").value);
+       
+       var minGap=Number(document.getElementById("minutes").value);
+         
+       if(lat==0 || lon ==0){
+           alert("enter all the fields")
+           var azimuth=Nan;     
+            }
+            else{
+             var today = new Date();
+             var hour=Number(today.getHours());
+             var minutes=Number(today.getMinutes());
+             var seconds=Number(today.getSeconds());
+             var localTimeMins=(Number(hour)*60+Number(minutes)+Number(seconds)/60);
+     
+     
+             var GMTgap=Number(hourGap + (minGap)/60);
+             var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
+             var year=Number(today.getFullYear());
+             var date=Number(today.getDate());
+             var month=Number(today.getMonth());
+     
+             var firstDate = new Date(year,01,01);
+             var secondDate = new Date(year,month+1,date);
+     
+             var numDaysPassed =Math.round(Math.abs((Number(firstDate.getTime())-Number(secondDate.getTime()))/(Number(oneDay))));
+             var LSTM=15*GMTgap;
+        
+           var TC1=4*(lon-LSTM);
+      var numDaysPassed=numDaysPassed+1;
+     var B=360/365*(numDaysPassed-81);
+     
+     var EOTcorr=9.87*sind(2*B)-7.53*cosd(B)-1.5*sind(B);
+     var TC=TC1+EOTcorr;
+     
+     var localSolarTime=Number((localTimeMins+Number(TC)))/60;
+     
+     var hourAngle=Number(localSolarTime)-12;
+     var hourAngle=Number(hourAngle)*15;
+     
+     
+     var hp=360/365*(284+Number(numDaysPassed));
+     var hp=sind(Number(hp))
+     var decAngle=23.45*hp;
+     
+     
+     
+     var altitude=asind(sind(decAngle)*sind(lat)+cosd(decAngle)*cosd(lat)*cosd(hourAngle));
+     
+      
+     if (localSolarTime<12 || hourAngle<0)
+     {    
+     var azimuth=acosd((sind(decAngle)*cosd(lat)-cosd(decAngle)*sind(lat)*cosd(hourAngle))/cosd(altitude));
+     
+     }
+     else
+     {
+       var azimuth=360-(acosd((sind(decAngle)*cosd(lat)-cosd(decAngle)*sind(lat)*cosd(hourAngle))/cosd(altitude)));
+       }
+            document.getElementById("azi").innerHTML="Azimuth angle : "+azimuth + "° <br>Altitude angle : "+ altitude+"°<br> Decrement Angle : "+decAngle+"°<br>hour angle : "+hourAngle+"°";
+          modal.style.display = "block";
+        }
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+          
+            }
+     
+     
+        </script>
+        
+       <script>
+            $(function(){
+    $("#card").flip({
+        trigger:'manual'
+    });
+    $("#ga").click(function(){
+    $("#card").flip(true);
+    })
+    $("#clea,#loc").click(function(){
+    $("#card").flip(true);
+    })
+ }); 
+ $(function(){
+    $("#card-2").flip({
+        trigger:'manual'
+    });
+    $("#ba").click(function(){
+    $("#card-2").flip(true);
+    })
+    
+    $("#ba1").click(function(){
+    $("#card-2").flip(false);
+    })
+    $("#ga1").click(function(){
+    $("#card").flip(false);
+    })
+
+});
+        </script>
+<script>
+        var x = document.getElementById("lat");
+        
+        var y = document.getElementById("lon");
+        
+        function ba() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+          } 
+        }
+        
+        function showPosition(position) {
+          x.value =  position.coords.latitude;
+          y.value = position.coords.longitude;
+        }
+
+        </script>
+                      <script>
+        function clea()
+        {
+            
+       var x = document.getElementById("lat");
+        
+        var y = document.getElementById("lon");
+     
+            x.value="";
+            y.value="";
+        }
+        
+        </script>
+     
+                      </body>
+</html>
