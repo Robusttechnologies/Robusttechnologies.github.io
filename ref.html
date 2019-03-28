@@ -1,6 +1,9 @@
 <html>
     <head>
-        <title>Robust Tech</title>
+        
+           
+        <title>Robust Technologies Inc</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Fredericka+the+Great|Germania+One|Mirza|Teko" rel="stylesheet">
 
             <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -55,7 +58,27 @@ box-shadow:10px 10px rgb(58, 57, 57);
     width:20%;
 
 }
+.b4{
+    position: relative;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+left:40px;
+box-shadow:10px 10px rgb(58, 57, 57);
+    
+    border-radius: 12px;
+    border-color: rgb(9, 19, 20);
+    -webkit-transition: width 2s; /* Safari */
+  transition: width 1s;
+margin-top: 30px;
+    background-image: url("v01.jpg");
+    height:70px;
+    width:150px;
+}
 
+.b4:hover{
+    width:156px;
+}
 .big{
     position: relative;
     left:10mm;
@@ -64,12 +87,12 @@ box-shadow:10px 10px rgb(58, 57, 57);
     background-size:     cover;                      
     background-repeat:   no-repeat;
     background-position: center center; 
-    width:22%;
+    width:26%;
     -webkit-transition: width 2s;
   transition: width 2s;
 }
 .big:hover{
-    width:27%;
+    width:29%;
 }
 
 .ar{
@@ -82,6 +105,12 @@ body{
     background-position: center;
     background-repeat: no-repeat;
 
+}
+h6{
+    font-family: 'Mirza', cursive;
+        font-size:20px;
+        color:whitesmoke;
+    
 }
 h2{
     margin-bottom: 5%;
@@ -100,6 +129,27 @@ body{
     background-size: auto auto;
     background-repeat: no-repeat;
 
+}
+
+.b4{
+    position: relative;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+left:40px;
+box-shadow:10px 10px rgb(58, 57, 57);
+    
+    border-radius: 12px;
+    border-color: rgb(9, 19, 20);
+    -webkit-transition: width 2s; /* Safari */
+  transition: width 1s;
+    background-image: url("v01.jpg");
+    height:70px;
+    width:70px;
+}
+
+.b4:hover{
+    width:80px;
 }
 a{color: lavenderblush;position: fixed;margin-top: 60px;}
 
@@ -145,6 +195,11 @@ a{position: relative;
 left:20px;
 top:-30px;}
 }
+   nav {
+    background:#212121;
+    width: 100%;
+}
+
 </style>
     </head>
 
@@ -175,7 +230,11 @@ top:-30px;}
 </div>
 <div class="q1">
     <h2>3.The Azimuth Calculation</h2>
+   <h6>Version 0.0</h6>
     <button class="b3" onclick="azimuth()"></button>
+</br><br>
+<h6>Version 1.0</h6>
+    <button class="b4" onclick="azimuth10()" ></button>
 </div><div class="enclose"><div class="ar">
     <br></br><br>
     <a href="products.html">Products</a><br></br>
@@ -214,6 +273,10 @@ window.setTimeout("timeout()",3*60*1000);
             window.location.href="solar_tracker.html";
         }
 
+        function azimuth10()
+        {
+            window.location.href="solar_tracker_v01.html";
+        }
         
     
 </script>
